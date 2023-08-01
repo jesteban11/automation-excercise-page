@@ -1,0 +1,20 @@
+<suite name="Registration Suite" verbose="1" parallel="tests" thread-count="5" preserve-order="true"
+       xmlns="http://testng.org/testng"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://testng.org/testng http://testng.org/testng-1.0.xsd"
+>
+    <!-- Agrega el siguiente atributo para habilitar el listener de Allure -->
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <!-- Configuración de tus clases de prueba -->
+    <test name="Registration">
+        <classes>
+            <class name="com.automationexcercise.tests.registration.RegistrationTests"/>
+        </classes>
+    </test>
+
+    <!-- Agrega más pruebas si es necesario -->
+
+</suite>
