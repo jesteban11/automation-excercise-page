@@ -47,7 +47,7 @@ jobs:
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: target/allure-results
+        PUBLISH_DIR: target/sites
 
     - name: Post the link to the report
       if: always()
