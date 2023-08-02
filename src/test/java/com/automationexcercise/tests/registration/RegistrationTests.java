@@ -28,4 +28,11 @@ public class RegistrationTests extends BaseTests {
         deleteAccountPage.clickButtonContinue();
     }
 
+    @Test(testName="2. Dummy test")
+    public void testDummy(){
+        HomePage homePage = new HomePage(driver);
+        homePage.openHomePage();
+        homePage.getLoggedInUserName();
+    }
+
 }
