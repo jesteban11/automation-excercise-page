@@ -37,5 +37,8 @@ public class RegistrationTests extends BaseTests {
         homePage.openHomePage();
         LoginPage loginPage = homePage.clickSingUpLogin();
         loginPage.loginIn(user);
+        Assert.assertEquals("Logged in as " + user.getName(), homePage.getLoggedInUser(), "Username us not correct");
+        DeleteAccountPage deleteAccountPage = homePage.clickDeleteAccount();
+        Assert.assertEquals("ACCOUNT DELETED!", deleteAccountPage.getAccountDeletedText(), "Account deleted text is not correct");
     }
 }

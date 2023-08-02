@@ -18,6 +18,9 @@ public class HomePage extends BasePage {
     @FindBy(css = ".nav.navbar-nav .fa.fa-user + b")
     WebElement lnkUserName;
 
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//li[contains(.,'Logged in')]")
+    WebElement lnkLoggedInUser;
+
     @FindBy(partialLinkText = "Delete Account")
     WebElement btnDeleteAccount;
 
@@ -44,6 +47,10 @@ public class HomePage extends BasePage {
 
     public String getLoggedInUserName() {
         return lnkUserName.getText();
+    }
+
+    public String getLoggedInUser() {
+        return lnkLoggedInUser.getText();
     }
 
     public DeleteAccountPage clickDeleteAccount() {

@@ -9,9 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,17 +19,17 @@ public class BaseTests {
 
     protected WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+        //options.addArguments("--headless");
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }
@@ -48,15 +46,14 @@ public class BaseTests {
                 File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
                 // Copiar el archivo de screenshot al directorio de Allure
-                FileUtils.copyFile(screenshotFile, new File(screenshotsDir + result.getName() + ".png"));
+                FileUtils.copyFile(screenshotFile, new File(screenshotsDir + result.getName() + System.currentTimeMillis() + ".png"));
 
                 // Adjuntar el screenshot al informe de Allure
-                Allure.addAttachment(result.getName() + " - Screenshot", FileUtils.openInputStream(new File(screenshotsDir + result.getName() + ".png")));
+                Allure.addAttachment(result.getName() + " - Screenshot", FileUtils.openInputStream(new File(screenshotsDir + result.getName() + System.currentTimeMillis() + ".png")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        //System.out.println("Screenshot taken: " + screenshot.getAbsolutePath());
     }
 
 }

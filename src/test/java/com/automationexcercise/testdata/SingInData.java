@@ -14,7 +14,7 @@ public class SingInData {
                                 "Moncada",
                                 "Mr",
                                 LocalDate.of(1988, 05, 07),
-                                "juanesteban.moncada+" + String.valueOf(System.currentTimeMillis()) + "@gmail.com",
+                                "juanesteban.moncada+" + System.currentTimeMillis() + "@gmail.com",
                                 "test", "test",
                                 "United States",
                                 "Illinois",
