@@ -29,16 +29,4 @@ public class RegistrationTests extends BaseTests {
         Assert.assertEquals("ACCOUNT DELETED!", deleteAccountPage.getAccountDeletedText(), "Account deleted text is not correct");
         deleteAccountPage.clickButtonContinue();
     }
-
-    @Test(testName = "2. Login User with correct email and password", dataProviderClass = SingInData.class, dataProvider = "sign-in-data")
-    public void testLogin(User user) {
-        CreateAccount.newUser(user);
-        HomePage homePage = new HomePage(driver);
-        homePage.openHomePage();
-        LoginPage loginPage = homePage.clickSingUpLogin();
-        loginPage.loginIn(user);
-        Assert.assertEquals("Logged in as " + user.getName(), homePage.getLoggedInUser(), "Username us not correct");
-        DeleteAccountPage deleteAccountPage = homePage.clickDeleteAccount();
-        Assert.assertEquals("ACCOUNT DELETED!", deleteAccountPage.getAccountDeletedText(), "Account deleted text is not correct");
-    }
 }

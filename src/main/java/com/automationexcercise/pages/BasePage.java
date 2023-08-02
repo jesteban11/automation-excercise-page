@@ -16,7 +16,7 @@ public class BasePage {
 
     public HomePage openHomePage() {
         driver.get(baseUrl);
-        return  new HomePage(driver);
+        return new HomePage(driver);
     }
 
     public void openSection(String section) {
