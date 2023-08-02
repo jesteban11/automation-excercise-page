@@ -13,6 +13,7 @@
         <classes>
             <class name="com.automationexcercise.tests.registration.RegistrationTests"/>
             <class name="com.automationexcercise.tests.registration.LogIn"/>
+            <class name="com.automationexcercise.tests.registration.IncorrectLogin"/>
         </classes>
     </test>
 
