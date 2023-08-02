@@ -12,6 +12,7 @@ public class SingInData {
                 {
                         new User("Juan",
                                 "Moncada",
+                                "Mr",
                                 LocalDate.of(1988, 05, 07),
                                 "juanesteban.moncada+" + String.valueOf(System.currentTimeMillis()) + "@gmail.com",
                                 "test", "test",

@@ -2,9 +2,11 @@ package com.automationexcercise.entities;
 
 import java.time.LocalDate;
 
+
 public class User {
     private String name;
     private String lastName;
+    private String gender;
     private LocalDate dateOfBirth;
     private String email;
     private String password;
@@ -16,9 +18,10 @@ public class User {
     private String zipcode;
     private String mobileNumber;
 
-    public User(String name, String lastName, LocalDate dateOfBirth, String email, String password, String address, String country, String state, String city, String zipcode, String mobileNumber) {
+    public User(String name, String lastName, String gender, LocalDate dateOfBirth, String email, String password, String address, String country, String state, String city, String zipcode, String mobileNumber) {
         this.name = name;
         this.lastName = lastName;
+        this.gender = gender;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.password = password;
@@ -29,12 +32,17 @@ public class User {
         this.zipcode = zipcode;
         this.mobileNumber = mobileNumber;
     }
+
     public String getName() {
         return name;
     }
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getGender() {
+        return gender;
     }
 
     public LocalDate getDateOfBirth() {

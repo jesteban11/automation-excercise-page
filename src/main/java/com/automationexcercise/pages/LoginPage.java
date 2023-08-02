@@ -21,11 +21,27 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[data-qa='signup-button']")
     private WebElement btnSignUp;
 
+    @FindBy(css = "[data-qa='login-email']")
+    private WebElement txtLoginEmail;
+
+    @FindBy(css= "[data-qa='login-password']")
+    private WebElement txtLoginPassword;
+
+    @FindBy(css = "[data-qa='login-button']")
+    private WebElement btnLogin;
+
 
     public SignUpPage signUpNewUser(User user) {
         txtSignUpName.sendKeys(user.getName());
         txtSignUpEmail.sendKeys(user.getEmail());
         btnSignUp.click();
         return new SignUpPage(driver);
+    }
+
+    public HomePage loginIn(User user){
+        txtLoginEmail.sendKeys(user.getEmail());
+        txtLoginPassword.sendKeys(user.getPassword());
+        btnLogin.click();
+        return new HomePage(driver);
     }
 }

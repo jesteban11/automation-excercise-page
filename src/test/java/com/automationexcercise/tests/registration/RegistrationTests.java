@@ -1,12 +1,14 @@
 package com.automationexcercise.tests.registration;
 
 
+import com.automationexcercise.api.CreateAccount;
 import com.automationexcercise.pages.*;
 import com.automationexcercise.testdata.SingInData;
 import com.automationexcercise.entities.User;
 import com.automationexcercise.tests.base.BaseTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 
 public class RegistrationTests extends BaseTests {
 
@@ -24,15 +26,18 @@ public class RegistrationTests extends BaseTests {
         homePage = accountCreatedPage.clickButtonContinue();
         Assert.assertEquals(user.getName(), homePage.getLoggedInUserName(), "Username us not correct");
         DeleteAccountPage deleteAccountPage = homePage.clickDeleteAccount();
-        Assert.assertEquals("ACCOUNT DELETED!",deleteAccountPage.getAccountDeletedText(),"Account deleted text is not correct");
+        Assert.assertEquals("ACCOUNT DELETED!", deleteAccountPage.getAccountDeletedText(), "Account deleted text is not correct");
         deleteAccountPage.clickButtonContinue();
     }
 
-    @Test(testName="2. Dummy test")
-    public void testDummy(){
+    @Test(testName = "2. Login User with correct email and password", dataProviderClass = SingInData.class, dataProvider = "sign-in-data")
+    public void testDummy(User user) {
+        CreateAccount.newUser(user);
         HomePage homePage = new HomePage(driver);
         homePage.openHomePage();
-        homePage.getLoggedInUserName();
+        LoginPage loginPage = homePage.clickSingUpLogin();
+        loginPage.loginIn(user);
+
     }
 
 }
