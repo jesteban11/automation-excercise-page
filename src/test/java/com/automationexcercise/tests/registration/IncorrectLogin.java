@@ -13,7 +13,7 @@ public class IncorrectLogin extends BaseTests {
         CreateAccount.newUser(user);
         HomePage homePage = new HomePage(driver);
         homePage.openHomePage();
-        driver.get("htttps://www.google.com.co");
+        driver.get("https://www.google.com.co");
         homePage.clickDeleteAccount();
     }
 }
