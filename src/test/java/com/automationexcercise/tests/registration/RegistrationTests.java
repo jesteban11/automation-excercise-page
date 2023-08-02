@@ -31,13 +31,11 @@ public class RegistrationTests extends BaseTests {
     }
 
     @Test(testName = "2. Login User with correct email and password", dataProviderClass = SingInData.class, dataProvider = "sign-in-data")
-    public void testDummy(User user) {
+    public void testLogin(User user) {
         CreateAccount.newUser(user);
         HomePage homePage = new HomePage(driver);
         homePage.openHomePage();
         LoginPage loginPage = homePage.clickSingUpLogin();
         loginPage.loginIn(user);
-
     }
-
 }
