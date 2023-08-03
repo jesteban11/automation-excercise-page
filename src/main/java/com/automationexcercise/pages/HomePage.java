@@ -24,6 +24,9 @@ public class HomePage extends BasePage {
     @FindBy(partialLinkText = "Delete Account")
     WebElement btnDeleteAccount;
 
+    @FindBy(partialLinkText = "Logout")
+    WebElement btnLogout;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -56,5 +59,10 @@ public class HomePage extends BasePage {
     public DeleteAccountPage clickDeleteAccount() {
         btnDeleteAccount.click();
         return new DeleteAccountPage(driver);
+    }
+
+    public LoginPage clickLogout() {
+        btnLogout.click();
+        return new LoginPage(driver);
     }
 }

@@ -6,8 +6,6 @@ import com.automationexcercise.pages.HomePage;
 import com.automationexcercise.pages.LoginPage;
 import com.automationexcercise.testdata.SingInData;
 import com.automationexcercise.tests.base.BaseTests;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,12 +16,9 @@ public class LogoutTest extends BaseTests {
         HomePage homePage = new HomePage(driver);
         homePage.openHomePage();
         LoginPage loginPage = homePage.clickSingUpLogin();
-        loginPage.loginIn(user);
+        homePage = loginPage.loginIn(user);
         Assert.assertEquals("Logged in as " + user.getName(), homePage.getLoggedInUser(), "Username us not correct");
-        driver.get("https://www.google.com.co");
-        driver.findElement(By.cssSelector("[name='q']")).sendKeys("Current Time");
-        driver.findElement(By.cssSelector("[name='q']")).sendKeys(Keys.ENTER);
-        loginPage.loginIn(user);
+        loginPage = homePage.clickLogout();
+        Assert.assertEquals("Login to your account", loginPage.getLoginToYourAccountText(), "Login to your account text is not shown correctly");
     }
-
 }
