@@ -1,16 +1,15 @@
 package com.automationexcercise.tests.registration;
 
 
-import com.automationexcercise.api.CreateAccount;
+import com.automationexcercise.entities.User;
 import com.automationexcercise.pages.*;
 import com.automationexcercise.testdata.SingInData;
-import com.automationexcercise.entities.User;
 import com.automationexcercise.tests.base.BaseTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class RegistrationTests extends BaseTests {
+public class RegisterTest extends BaseTests {
 
     @Test(testName = "1. Register User", dataProviderClass = SingInData.class, dataProvider = "sign-in-data")
     public void testRegisterUser(User user) {

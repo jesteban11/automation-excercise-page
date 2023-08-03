@@ -24,11 +24,14 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[data-qa='login-email']")
     private WebElement txtLoginEmail;
 
-    @FindBy(css= "[data-qa='login-password']")
+    @FindBy(css = "[data-qa='login-password']")
     private WebElement txtLoginPassword;
 
     @FindBy(css = "[data-qa='login-button']")
     private WebElement btnLogin;
+
+    @FindBy(css = "form[action='/login'] p")
+    private WebElement txaLoginError;
 
 
     public SignUpPage signUpNewUser(User user) {
@@ -38,10 +41,14 @@ public class LoginPage extends BasePage {
         return new SignUpPage(driver);
     }
 
-    public HomePage loginIn(User user){
+    public HomePage loginIn(User user) {
         txtLoginEmail.sendKeys(user.getEmail());
         txtLoginPassword.sendKeys(user.getPassword());
         btnLogin.click();
         return new HomePage(driver);
+    }
+
+    public String getLoginErrorText() {
+        return txaLoginError.getText();
     }
 }
