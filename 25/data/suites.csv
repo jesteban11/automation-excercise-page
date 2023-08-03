@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Aug 03 14:23:49 GMT 2023","Thu Aug 03 14:23:56 GMT 2023","6881","Registration Suite","Registration","com.automationexcercise.tests.registration.LogIn","com.automationexcercise.tests.registration.LogIn","testLogin","testLogin",""
+"broken","Thu Aug 03 14:23:38 GMT 2023","Thu Aug 03 14:23:49 GMT 2023","11214","Registration Suite","Registration","com.automationexcercise.tests.registration.IncorrectLogin","com.automationexcercise.tests.registration.IncorrectLogin","testIncorrectLogin","testIncorrectLogin",""
+"passed","Thu Aug 03 14:23:57 GMT 2023","Thu Aug 03 14:24:08 GMT 2023","10942","Registration Suite","Registration","com.automationexcercise.tests.registration.RegistrationTests","com.automationexcercise.tests.registration.RegistrationTests","testRegisterUser","testRegisterUser",""
