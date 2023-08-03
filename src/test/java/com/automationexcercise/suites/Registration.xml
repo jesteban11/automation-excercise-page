@@ -10,11 +10,9 @@
 
     <!-- Configuración de tus clases de prueba -->
     <test name="Registration">
-        <classes>
-            <class name="com.automationexcercise.tests.registration.RegistrationTests"/>
-            <class name="com.automationexcercise.tests.registration.LogIn"/>
-            <class name="com.automationexcercise.tests.registration.IncorrectLogin"/>
-        </classes>
+        <packages>
+            <package name="com.automationexcercise.tests.registration.*"/>
+        </packages>
     </test>
 
     <!-- Agrega más pruebas si es necesario -->

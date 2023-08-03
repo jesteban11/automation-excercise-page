@@ -45,11 +45,15 @@ public class BaseTests {
                 // Capturar el screenshot
                 File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
+                String fileName = screenshotsDir + result.getName() + System.currentTimeMillis() + ".png";
+
                 // Copiar el archivo de screenshot al directorio de Allure
-                FileUtils.copyFile(screenshotFile, new File(screenshotsDir + result.getName() + ".png"));
+                //FileUtils.copyFile(screenshotFile, new File(screenshotsDir + result.getName() + System.currentTimeMillis() + ".png"));
+                FileUtils.copyFile(screenshotFile, new File(screenshotsDir + fileName));
 
                 // Adjuntar el screenshot al informe de Allure
-                Allure.addAttachment(result.getName() + " - Screenshot", FileUtils.openInputStream(new File(screenshotsDir + result.getName() + ".png")));
+                //Allure.addAttachment(result.getName() + " - Screenshot", FileUtils.openInputStream(new File(screenshotsDir + result.getName() + System.currentTimeMillis() + ".png")));
+                Allure.addAttachment(result.getName() + " - Screenshot", FileUtils.openInputStream(new File(screenshotsDir + fileName)));
             } catch (IOException e) {
                 e.printStackTrace();
             }
