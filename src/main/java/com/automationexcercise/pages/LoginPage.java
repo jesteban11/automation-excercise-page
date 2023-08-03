@@ -33,8 +33,11 @@ public class LoginPage extends BasePage {
     @FindBy(css = "form[action='/login'] p")
     private WebElement txaLoginError;
 
-    @FindBy(css= ".login-form h2")
+    @FindBy(css = ".login-form h2")
     private WebElement txaLoginToYourAccount;
+
+    @FindBy(css = "form[action='/signup'] p")
+    private WebElement txaSignUpError;
 
 
     public SignUpPage signUpNewUser(User user) {
@@ -55,7 +58,11 @@ public class LoginPage extends BasePage {
         return txaLoginError.getText();
     }
 
-    public String getLoginToYourAccountText(){
+    public String getSignUpErrorText() {
+        return txaSignUpError.getText();
+    }
+
+    public String getLoginToYourAccountText() {
         return txaLoginToYourAccount.getText();
     }
 }

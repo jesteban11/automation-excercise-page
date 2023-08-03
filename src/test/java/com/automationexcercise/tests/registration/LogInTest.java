@@ -1,6 +1,6 @@
 package com.automationexcercise.tests.registration;
 
-import com.automationexcercise.api.CreateAccount;
+import com.automationexcercise.api.Account;
 import com.automationexcercise.entities.User;
 import com.automationexcercise.pages.DeleteAccountPage;
 import com.automationexcercise.pages.HomePage;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class LogInTest extends BaseTests {
     @Test(testName = "2. Login User with correct email and password", dataProviderClass = SingInData.class, dataProvider = "sign-in-data")
     public void testLogin(User user) {
-        CreateAccount.newUser(user);
+        Account.newUser(user);
         HomePage homePage = new HomePage(driver);
         homePage.openHomePage();
         LoginPage loginPage = homePage.clickSingUpLogin();

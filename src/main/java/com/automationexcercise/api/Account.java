@@ -6,7 +6,7 @@ import io.restassured.http.ContentType;
 import static io.restassured.RestAssured.given;
 
 
-public class CreateAccount {
+public class Account {
     public static void newUser(User user) {
         given()
                 .multiPart("name", user.getName())
@@ -29,6 +29,21 @@ public class CreateAccount {
                 .post("https://automationexercise.com/api/createAccount")
                 .then()
                 .assertThat()
-                .statusCode(200).log().body();
+                .statusCode(200)
+                .log().body();
+    }
+
+    public static void deleteUser(User user) {
+        given().multiPart("email", user.getEmail())
+                .multiPart("password", user.getPassword())
+                .when()
+                .contentType(ContentType.MULTIPART)
+                .delete("https://automationexercise.com/api/deleteAccount")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .log().body();
+
+
     }
 }
