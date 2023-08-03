@@ -23,6 +23,7 @@ public class LogoutTest extends BaseTests {
         driver.get("https://www.google.com.co");
         driver.findElement(By.cssSelector("[name='q']")).sendKeys("Current Time");
         driver.findElement(By.cssSelector("[name='q']")).sendKeys(Keys.ENTER);
+        loginPage.loginIn(user);
     }
 
 }
